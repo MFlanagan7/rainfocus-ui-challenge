@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use 'sass:math';
+
+$text-styles: (
+    // Figma px values, no units
+    h1-page-header:         (size: 32, weight: 300, line:39),
+    h2-section-header:      (size: 24, weight: 600, line:29),
+    h3-sub-header:          (size: 20, weight: 600, line:24),
+    paragraph-workflow:     (size: 16, weight: 400, line:24),
+    paragraph-admin:        (size: 14, weight: 700, line:17),
+    nav-label:              (size: 14, weight: 600, line:18),
+    nav-sub-item:           (size: 14, weight: 600, line:14),
+    sidebar-event-title:    (size: 14, weight: 600, line:18),
+    card-title:             (size: 13, weight: 700, line:16),
+    card-description:       (size: 12, weight: 400, line:15),
+    caption:                (size: 10, weight: 500, line:18),
+    search-placeholder:     (size: 10, weight: 600, line:10),
+    avatar-initials:        (size: 16, weight: 400, line:18),
+);
+
+$breakpoints: (
+    desktop: 1200px,
+    tablet: 768px,
+);
+
+@mixin text($name) {
+    // Catch typos at compile time.
+    @if not map.has-key($text-styles, $name) {
+        @error "Unknown text style: #{$name}";
+    }
+
+    $style: map.get($text-styles, $name);
+    $size: map.get($style, size);
+
+    font-size: math.div($size, 16) * 1rem;                  // 32 -> 2rem
+    font-weight: map.get($style, weight);
+    line-height: math.div(map.get($style, line), $size);    // 39 / 32 -> 1.22 unitless
+}
+
+@mixin below($name) {
+    @media (width < #{map.get($breakpoints, $name)}) {
+        @content;
+    }
+}

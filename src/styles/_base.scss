@@ -1,0 +1,22 @@
+@use 'mixins' as *;
+
+body {
+    @include text(paragraph-workflow);
+    font-family: var(--font-family);
+    color: var(--color-text-body);
+}
+h1 {
+    @include text(h1-page-header);
+    color: var(--color-text-heading);
+}
+h2 {
+    @include text(h2-section-header);
+    color: var(--color-text-heading);
+}
+h3 {
+    @include text(h3-sub-header);
+    color: var(--color-text-heading);
+}
+h4, h5 {
+    color: var(--color-text-heading);
+}

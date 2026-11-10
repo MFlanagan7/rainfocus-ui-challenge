@@ -1,0 +1,48 @@
+:root {
+    // COLORS
+    --color-primary:            #5C00DC;                                                    // (Brand/Secondary Grape): button, active nav, icons, links
+    --color-primary-subtle:     color-mix(in srgb, var(--color-primary) 8%, transparent);      // (rgba(92,0,220,.08)): active nav background
+    --color-text-heading:       #222222;                                                    // (Text/G1 Header)
+    --color-text-body:          #393551;                                                    // paragraphs, descriptions
+    --color-text-muted:         #767676;                                                    // (Neutral/G4): nav labels
+    --color-text-subtle:        #777777;                                                    // search placeholder and icon
+    --color-text-inverse:       #FFFFFF;                                                    // (Neutral/White): button text
+    --color-text-strong:        #000000;                                                    // sidebar date and location
+    --color-border:             #CBC6DE;                                                    // rail and sidebar borders, divider, cards
+    --color-surface:            #FFFFFF;                                                    // page and cards
+    --color-surface-muted:      #F5F5F5;                                                    // search input
+    --color-avatar:             #444444;                                                    // (Neutral/G3): FL avatar
+    --color-nav-dot:            var(--color-text-muted);                                      // grey nav circles
+
+    // SPACING  (4px scale)
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-6:  24px;
+    --space-8:  32px;
+    --space-10: 40px;
+    --space-12: 48px;
+
+    // RADIUS
+    --radius-sm:    4px;     // cards, button, search
+    --radius-md:    8px;     // active nav item, event logo
+    --radius-full:  50%;     // avatar, nav circles
+
+    // LAYOUT
+    --rail-width:            63px;      // (includes 1px border)
+    --sidebar-width:         215px;     // (includes 1px border)
+    --main-padding:          40px 48px; // (desktop)
+    --section-gap:           var(--space-10);
+    --card-padding:          24px 32px;
+    --card-gap-row:          var(--space-4);
+    --card-gap-col:          var(--space-6);
+    --nav-item-height:       var(--space-10);
+    --nav-sub-item-height:   30px;
+    --avatar-size:           var(--space-8);
+    --nav-dot-size:          var(--space-6);
+    --event-logo-size:       95px;
+
+    // TYPOGRAPHY
+    --font-family: 'Inter', system-ui, sans-serif;
+}
