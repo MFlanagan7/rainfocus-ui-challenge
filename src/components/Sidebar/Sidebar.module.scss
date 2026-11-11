@@ -1,5 +1,6 @@
 @use '../../styles/mixins' as *;
 
+// Container
 .sidebar {
     position: sticky;
     top: 0;
@@ -8,19 +9,25 @@
     overflow-y: auto;
     padding: var(--space-3) var(--space-2);
 }
+
+// Event info
 .navLabel {
     @include text(sidebar-event-title);
     padding: var(--space-2) var(--space-2) var(--space-3);
     color: var(--color-text-heading);
 }
+
 .subheader {
     @include text(caption);
     color: var(--color-text-strong);
     padding: 0 var(--space-2) var(--space-3);
 }
+
+// Search
 .searchBar {
     padding: 0 var(--space-2) var(--space-3);
 }
+
 .searchInput {
     @include text(search-placeholder);
     padding: var(--space-1) var(--space-1) var(--space-1) var(--space-6);
@@ -34,4 +41,43 @@
     background-color: var(--color-surface-muted);
     width: 100%;
     min-height: var(--space-6);
+}
+
+// Nav
+.navList {
+    @include text(nav-label);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    min-height: var(--nav-item-height);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+
+    &::before {
+        content: '';
+        flex-shrink: 0;
+        width: var(--nav-dot-size);
+        height: var(--nav-dot-size);
+        border-radius: var(--radius-full);
+        background: currentColor;
+    }
+}
+.subList {
+    padding: var(--space-1) var(--space-3) var(--space-3) var(--space-12);
+    list-style: none;
+}
+.subLink {
+    @include text(nav-sub-item);
+    display: block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--space-2) 0;
 }

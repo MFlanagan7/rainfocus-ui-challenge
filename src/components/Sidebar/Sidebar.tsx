@@ -19,10 +19,19 @@ const Sidebar = ({ event }: SidebarProps) => {
                     <input className={styles.searchInput} type='search' placeholder='Search' aria-label='Search' />
             </search>
             <nav aria-label='Event'>
-                <ul>
-                    <li>link 1</li>
-                    <li>link 2</li>
-                    <li>link 3</li>
+                <ul className={styles.navList}>
+                    <li><a className={styles.link} href="#">Guide</a></li>
+                    <li><a className={styles.link} href="#">Attendees</a>
+                        <ul className={styles.subList}>
+                            <li><a className={styles.subLink} href="#">Attendees</a></li>
+                            <li><a className={styles.subLink} href="#">Attendee types</a></li>
+                            <li><a className={styles.subLink} href="#">Packages</a></li>
+                            <li><a className={styles.subLink} href="#">Reg codes</a></li>
+                            <li><a className={styles.subLink} href="#">Discounts</a></li>
+                        </ul>
+                    </li>
+                    <li><a className={styles.link} href="#">Content</a></li>
+                    <li><a className={styles.link} href="#">Exhibitors</a></li>
                 </ul>
             </nav>
         </div>
