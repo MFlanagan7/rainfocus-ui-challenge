@@ -1,7 +1,9 @@
 export interface EventInfo {
     id: string,
     name: string,
-    location: string,
+    city: string,
+    state: string,
+    stateCode: string,
     date: string,
     logoUrl: string,
 }
