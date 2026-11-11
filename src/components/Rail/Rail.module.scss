@@ -1,0 +1,45 @@
+@use '../../styles/mixins' as *;
+
+.rail {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) 7.5px;
+}
+.top {
+    display: flex;
+    flex-direction: column;
+}
+.rfLogo {
+    margin: var(--space-2) var(--space-1) var(--space-6) var(--space-3);
+    height: var(--space-8);
+    width: var(--space-8);
+}
+.events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    img {
+        height: var(--space-8);
+        width: var(--space-8);
+        border-radius: var(--radius-sm);
+    }
+}
+.avatar {
+    @include text(avatar-initials);
+    margin-top: auto;
+    margin-inline: auto;
+    border-radius: var(--radius-full);
+    background-color: var(--color-avatar);
+    height: var(--avatar-size);
+    width: var(--avatar-size);
+    color: var(--color-text-inverse);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
