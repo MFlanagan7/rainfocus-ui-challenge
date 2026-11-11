@@ -3,7 +3,7 @@ import styles from './Sidebar.module.scss'
 const Sidebar = () => {
     return (
         <div className={styles.sidebar}>
-            <h2>Event Name</h2>
+            <p className={styles.navLabel}>RainFocus Summit</p>
             <div>Search</div>
             <nav aria-label='Event'>
                 <ul>

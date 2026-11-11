@@ -1,15 +1,27 @@
 import styles from './Rail.module.scss'
 import rfLogo from '../../assets/graphics/rf-logo.svg'
-import eventLogo from '../../assets/graphics/mountain-event-logo.png'
+import RailEvent from '../RailEvent/RailEvent'
+import type { EventInfo } from '../../types/types'
 
-const Rail = () => {
+type RailProps = {
+    events: EventInfo[],
+    activeId: string
+}
+
+const Rail = ({ events, activeId }: RailProps) => {
     return (
         <div className={styles.rail}>
             <div className={styles.top}>
                 <img className={styles.rfLogo} src={rfLogo} alt="RainFocus logo" />
-                <div className={styles.events}>
-                    <img src={eventLogo} alt="Mountain Event Summit" />
-                </div>
+                {
+                    events.map( (event) => 
+                        <RailEvent 
+                            key={event.id}
+                            event={event}
+                            isActive={event.id === activeId}
+                        />
+                    )
+                }
             </div>
             <div className={styles.avatar}>FL</div>
         </div>

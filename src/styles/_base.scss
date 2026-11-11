@@ -1,5 +1,10 @@
 @use 'mixins' as *;
 
+*:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 body {
     @include text(paragraph-workflow);
     font-family: var(--font-family);
