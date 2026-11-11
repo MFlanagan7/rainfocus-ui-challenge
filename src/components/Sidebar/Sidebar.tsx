@@ -21,7 +21,7 @@ const Sidebar = ({ event }: SidebarProps) => {
             <nav aria-label='Event'>
                 <ul className={styles.navList}>
                     <li><a className={styles.link} href="#">Guide</a></li>
-                    <li><a className={styles.link} href="#">Attendees</a>
+                    <li><a className={styles.link} href="#" aria-current='page'>Attendees</a>
                         <ul className={styles.subList}>
                             <li><a className={styles.subLink} href="#">Attendees</a></li>
                             <li><a className={styles.subLink} href="#">Attendee types</a></li>
