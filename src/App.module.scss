@@ -1,12 +1,83 @@
+@use './styles/mixins' as *;
+
 .app {
     display: grid;
     grid-template-columns: var(--rail-width) var(--sidebar-width) 1fr;
     min-height: 100dvh;
 }
 .main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
     padding: var(--main-padding);
 
     h1, h2, h3, h4, h5, p {
         max-width: 70ch;
     }
+}
+.header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+.eventHeadline {
+    margin-bottom: var(--space-2);
+}
+.logo {
+    height: var(--event-logo-size);
+    width: var(--event-logo-size);
+    border-radius: var(--radius-md);
+}
+.button {
+    @include text(paragraph-admin);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    margin-left: auto;
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4);
+}
+.pageHeadline {
+    margin-bottom: var(--space-4);
+}
+.accordion {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+.accordionHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+.attendeeIcon {
+    height: 35px;
+    width: 35px;
+}
+.step1Section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.step1Header {
+    @include text(paragraph-admin);
+}
+.headerText {
+    font-weight: 400;
+}
+.step1Body {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-4) var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--space-8);
+}
+.cardTitle {
+    @include text(card-title);
+}
+.cardBody {
+    @include text(card-description)
 }
