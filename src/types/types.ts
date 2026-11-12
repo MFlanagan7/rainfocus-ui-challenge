@@ -7,3 +7,10 @@ export interface EventInfo {
     date: string,
     logoUrl: string,
 }
+
+export interface NavItem {
+    id: string,
+    label: string,
+    href: string,
+    children?: NavItem[],
+}

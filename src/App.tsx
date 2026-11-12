@@ -9,7 +9,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Rail events={events} activeId={current.id} />
-      <Sidebar event={current} />
+      <Sidebar event={current} activeNavId='attendees' />
       <main className={styles.main}>
         <h1>Event Header</h1>
       </main>

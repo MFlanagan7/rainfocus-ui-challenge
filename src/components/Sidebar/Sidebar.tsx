@@ -1,11 +1,13 @@
 import type { EventInfo } from '../../types/types'
 import styles from './Sidebar.module.scss'
+import { navData } from '../../data/nav-data'
 
 type SidebarProps = {
-    event: EventInfo
+    event: EventInfo,
+    activeNavId: string,
 }
 
-const Sidebar = ({ event }: SidebarProps) => {
+const Sidebar = ({ event, activeNavId }: SidebarProps) => {
     return (
         <div className={styles.sidebar}>
             <p className={styles.navLabel}>{event.name}</p>
@@ -20,18 +22,20 @@ const Sidebar = ({ event }: SidebarProps) => {
             </search>
             <nav aria-label='Event'>
                 <ul className={styles.navList}>
-                    <li><a className={styles.link} href="#">Guide</a></li>
-                    <li><a className={styles.link} href="#" aria-current='page'>Attendees</a>
-                        <ul className={styles.subList}>
-                            <li><a className={styles.subLink} href="#">Attendees</a></li>
-                            <li><a className={styles.subLink} href="#">Attendee types</a></li>
-                            <li><a className={styles.subLink} href="#">Packages</a></li>
-                            <li><a className={styles.subLink} href="#">Reg codes</a></li>
-                            <li><a className={styles.subLink} href="#">Discounts</a></li>
-                        </ul>
+                {navData.map( (nav) => (
+                    <li key={nav.id}>
+                        <a className={styles.link} href={nav.href} aria-current={nav.id === activeNavId ? 'page' : undefined}>{nav.label}</a>
+                        {nav.children && (
+                            <ul className={styles.subList}>
+                                {nav.children.map( (child) => (
+                                    <li key={child.id}>
+                                        <a className={styles.subLink} href={child.href}>{child.label}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </li>
-                    <li><a className={styles.link} href="#">Content</a></li>
-                    <li><a className={styles.link} href="#">Exhibitors</a></li>
+                ))}
                 </ul>
             </nav>
         </div>
