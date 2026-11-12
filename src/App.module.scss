@@ -56,28 +56,56 @@
     height: 35px;
     width: 35px;
 }
-.step1Section {
+.step {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
 }
-.step1Header {
+.stepHeader {
     @include text(paragraph-admin);
 }
 .headerText {
     font-weight: 400;
 }
 .step1Body {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: var(--space-4) var(--space-6);
+    @include card-box(var(--space-4) var(--space-6));
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: var(--space-8);
 }
+.step1Card {
+    padding: var(--space-2);
+}
 .cardTitle {
     @include text(card-title);
+    margin-bottom: var(--space-1);
 }
 .cardBody {
     @include text(card-description)
+}
+.cardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-4) var(--space-6);
+}
+.step2CardButton {
+    @include card-box;
+    min-height: 120px;
+    background: var(--color-surface);
+    color: var(--color-text-heading);
+
+    &:hover {
+        background: var(--color-primary-subtle);
+        cursor: pointer;
+    }
+}
+.step2CardDefault {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+}
+.icon {
+    color: var(--color-primary);
+    display: flex;
 }

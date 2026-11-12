@@ -1,0 +1,24 @@
+@use '../../styles/mixins' as *;
+
+.stepCard {
+    @include card-box;
+    min-height: 120px;
+}
+.stepCardHeader {
+    @include text(card-title);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-bottom: var(--space-1);
+}
+.icon {
+    color: var(--color-primary);
+    display: flex;
+}
+.cardTitle {
+    @include text(card-title);
+    margin-bottom: var(--space-1);
+}
+.cardBody {
+    @include text(card-description)
+}
