@@ -19,7 +19,7 @@ $text-styles: (
 );
 
 $breakpoints: (
-    desktop: 1200px,
+    desktop: 1200px, // keep in sync with media resize event listener breakpointin App.tsx useEffect
     tablet: 768px,
 );
 

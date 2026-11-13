@@ -11,6 +11,13 @@
     align-items: center;
     padding: var(--space-3) 7.5px;
 
+    @include below(desktop) {
+        &.open {
+            background: var(--color-surface);
+            z-index: var(--z-drawer);
+        }
+    }
+
     @include below(tablet) {
         display: none;
 
@@ -18,8 +25,6 @@
             display: flex;
             position: fixed;
             left: 0;
-            z-index: var(--z-drawer);
-            background: var(--color-surface);
         }
     }
 }

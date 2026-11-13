@@ -49,12 +49,23 @@ function App() {
     return () => menuButton?.focus()
   }, [isMenuOpen])
 
+  useEffect( () => {
+    const widthQuery = window.matchMedia('(min-width: 1200px)') // keep in sync with $breakpoints in mixins
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (e.matches) setIsMenuOpen(false)
+    }
+    widthQuery.addEventListener('change', handleChange)
+    return () => {
+      widthQuery.removeEventListener('change', handleChange)
+    }
+  }, [isMenuOpen])
+
   return (
     <div className={styles.app}>
       <Rail events={events} activeId={current.id} user={user} isOpen={isMenuOpen} />
       <Sidebar event={current} activeNavId='attendees' isOpen={isMenuOpen} onClose={closeMenu} closeButtonRef={closeButtonRef} />
       {isMenuOpen && <div className={styles.backdrop} onClick={closeMenu} aria-hidden='true' />}
-      <div className={styles.content}>
+      <div className={styles.content} inert={isMenuOpen}>
         <TopBar event={current} user={user} isMenuOpen={isMenuOpen} onToggleMenu={() => setIsMenuOpen(prev => !prev)} menuButtonRef={menuButtonRef} />
         <main className={styles.main}>
           <header className={styles.header}>
