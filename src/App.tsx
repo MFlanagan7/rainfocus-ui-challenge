@@ -60,6 +60,17 @@ function App() {
     }
   }, [isMenuOpen])
 
+  useEffect( () => {
+    if (!isMenuOpen) return
+
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previous
+    }
+  }, [isMenuOpen])
+
   return (
     <div className={styles.app}>
       <Rail events={events} activeId={current.id} user={user} isOpen={isMenuOpen} />
