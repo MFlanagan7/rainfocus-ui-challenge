@@ -1,17 +1,24 @@
 import type { EventInfo } from '../../types/types'
 import styles from './Sidebar.module.scss'
 import { navData } from '../../data/nav-data'
+import CloseIcon from '../icons/CloseIcon'
 
 type SidebarProps = {
     event: EventInfo,
     activeNavId: string,
     isOpen: boolean,
+    onClose: () => void,
 }
 
-const Sidebar = ({ event, activeNavId, isOpen }: SidebarProps) => {
+const Sidebar = ({ event, activeNavId, isOpen, onClose }: SidebarProps) => {
     return (
         <div id='sidebar' className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
-            <p className={styles.navLabel}>{event.name}</p>
+            <div className={styles.sidebarHeader}>
+                <p className={styles.navLabel}>{event.name}</p>
+                <button className={styles.closeButton} type='button' aria-label='Close menu' onClick={onClose}>
+                    <CloseIcon />
+                </button>
+            </div>
             <div className={styles.subheader}>
                 {event.city},&nbsp;
                 {event.stateCode}

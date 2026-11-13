@@ -9,7 +9,7 @@ import ArrowIcon from './components/icons/ArrowIcon';
 import ComputerIcon from './components/icons/ComputerIcon';
 import TopBar from './components/TopBar/TopBar';
 import type { User } from './types/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const current = events[0]
 
@@ -26,11 +26,23 @@ const cardData = [
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const closeMenu = () => setIsMenuOpen(false)
+
+  useEffect( () => {
+    if (!isMenuOpen) return
+    const handleKeyDown = (events: KeyboardEvent) => {
+      if (events.key === 'Escape') setIsMenuOpen(false)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
 
   return (
     <div className={styles.app}>
       <Rail events={events} activeId={current.id} user={user} isOpen={isMenuOpen} />
-      <Sidebar event={current} activeNavId='attendees' isOpen={isMenuOpen} />
+      <Sidebar event={current} activeNavId='attendees' isOpen={isMenuOpen} onClose={closeMenu} />
+      {isMenuOpen && <div className={styles.backdrop} onClick={closeMenu} aria-hidden='true' />}
       <div className={styles.content}>
         <TopBar event={current} user={user} isMenuOpen={isMenuOpen} onToggleMenu={() => setIsMenuOpen(prev => !prev)} />
         <main className={styles.main}>

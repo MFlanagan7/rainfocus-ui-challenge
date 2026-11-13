@@ -15,6 +15,7 @@
     --color-surface-muted:      #F5F5F5;                                                    // search input
     --color-avatar:             #444444;                                                    // (Neutral/G3): FL avatar
     --color-nav-dot:            var(--color-text-muted);                                      // grey nav circles
+    --color-overlay:            rgba(34, 34, 34, 0.5);                                      // mobile menu backdrop
 
     // SPACING  (4px scale)
     --space-1:  4px;
@@ -44,6 +45,8 @@
     --avatar-size:           var(--space-8);
     --nav-dot-size:          var(--space-6);
     --event-logo-size:       95px;
+    --z-backdrop:            5;
+    --z-drawer:              10;
 
     // TYPOGRAPHY
     --font-family: 'Inter', system-ui, sans-serif;

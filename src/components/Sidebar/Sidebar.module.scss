@@ -17,8 +17,31 @@
             position: fixed;
             left: var(--rail-width);
             background: var(--color-surface);
-            z-index: 10;
+            z-index: var(--z-drawer);
         }
+    }
+}
+
+.sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.closeButton {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    margin-right: -6px;
+
+    @include below(desktop) {
+        display: flex;
     }
 }
 

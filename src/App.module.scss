@@ -23,6 +23,17 @@
         max-width: 70ch;
     }
 }
+.backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-backdrop);
+    background: var(--color-overlay);
+
+    @include below(desktop) {
+        display: block;
+    }
+}
 .header {
     display: flex;
     align-items: flex-start;
