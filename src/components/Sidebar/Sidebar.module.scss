@@ -18,6 +18,14 @@
             left: var(--rail-width);
             background: var(--color-surface);
             z-index: var(--z-drawer);
+
+            @media (prefers-reduced-motion: no-preference) {
+                transition: translate 300ms ease-out;
+
+                @starting-style {
+                    translate: calc(-100% - var(--rail-width)) 0;
+                }
+            }
         }
     }
 }

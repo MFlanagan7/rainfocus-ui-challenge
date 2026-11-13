@@ -29,6 +29,14 @@
     inset: 0;
     z-index: var(--z-backdrop);
     background: var(--color-overlay);
+    
+    @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 300ms ease-out;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
 
     @include below(desktop) {
         display: block;
