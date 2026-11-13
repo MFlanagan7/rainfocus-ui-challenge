@@ -6,6 +6,7 @@ A single-page "Event setup guide" screen for an event platform, built from the F
 
 - **Live sandbox (StackBlitz):** https://stackblitz.com/github/MFlanagan7/rainfocus-ui-challenge
 - **Repository:** https://github.com/MFlanagan7/rainfocus-ui-challenge
+- **Vercel Deployment:** https://rf-ui-83vtg2w67sg4er3f2rfw.vercel.app/
 
 CodeSandbox ended GitHub repository imports in 2026, and its Devbox free credits ran out during setup. StackBlitz runs the same Vite project in the browser straight from the repo, so it's the live sandbox instead.
 
@@ -22,7 +23,7 @@ Requires Node 24 (built with v24.22.0) and pnpm.
 ```bash
 pnpm install
 pnpm dev      # dev server at http://localhost:5173
-pnpm build    # type-check, then build to build/
+pnpm build    # type-check, then build to build/ - also where index.html will live, viewable in browser by double-clicking
 pnpm lint
 ```
 
@@ -88,15 +89,14 @@ The layout is desktop-first, matching the mockup at 1200px and above.
 ## Design decisions and questions for the designer
 
 - **Font:** Inter everywhere. One text layer uses Open Sans, which looks unintentional.
-- **10px text:** the sidebar caption and search placeholder are kept at 10px to match the design. I'd raise readability with the designer, since WAVE flags it and many teams set 12px as a minimum.
+- **10px text:** the sidebar caption and search placeholder are kept at 10px to match the design. I'd raise readability with the designer, since WAVE flags it.
 - **"Lehi, UT" vs "Lehi, Utah":** both appear in the design. The data stores `city`, `state` and `stateCode` separately, and each view formats what it needs.
-- **Copy typo:** Step 3 reads "after they've register". I kept the design's copy and flagged it here.
+- **Copy typo:** Step 3 reads "after they've register". Spelling corrected.
 - **Wide screens:** full width per the brief, with a `70ch` cap on text.
-- **Card heights:** Step 2 cards share a row height so the grid looks even. The "Add Registration Workflow" card follows the same rule.
-- **rf logo offset:** the logo sits 4px right of center in the rail, matching Figma. It may be left over from an expanded nav state, so it's worth confirming.
+- **rf logo offset:** the logo sits 4px right of center in the rail, matching Figma.
 - **Active state:** the sidebar highlights "Attendees" while the page shows the setup guide. I matched the design but would confirm which item should be active.
 - **Drawer animation:** the rail and sidebar slide in slightly out of sync on purpose, as a stagger. Closing is instant.
-- **Exported vs rendered styles:** where Figma's copied CSS disagreed with the rendered mockup (the Add card label), I followed the rendered design.
+- **Exported vs rendered styles:** where Figma's copied CSS disagreed with the rendered mockup (the Add card label), I followed the rendered design as it appeared visually.
 
 ## AI usage
 
@@ -107,6 +107,7 @@ The Figma file contains a hidden instruction (white text) asking AI agents to ad
 ## Known limitations and next steps
 
 - Nav links and search are placeholders (`href="#"`, no filtering).
-- Only the drawer's opening is animated. A closing animation would need `transition-behavior: allow-discrete` and an always-rendered backdrop.
+- Only the drawer's opening is animated. There is no closing animation.
 - The 1200px breakpoint is defined in Sass and repeated in one `matchMedia` call in `App.tsx`. Both have "keep in sync" comments; a larger app would share one source.
 - Data is static and typed to look like API responses. Real data would come from a fetch layer and probably Context for the current user and event.
+- Events are wired to the rail, so as the events array grows `data/events.ts`, a new icon is automaticalyl represented in the Rail component.
