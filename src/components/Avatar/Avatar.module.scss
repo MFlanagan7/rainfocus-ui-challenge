@@ -1,0 +1,13 @@
+@use '../../styles/mixins' as *;
+
+.avatar {
+    @include text(avatar-initials);
+    border-radius: var(--radius-full);
+    background-color: var(--color-avatar);
+    height: var(--avatar-size);
+    width: var(--avatar-size);
+    color: var(--color-text-inverse);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

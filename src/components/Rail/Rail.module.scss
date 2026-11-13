@@ -8,7 +8,12 @@
     border-right: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: var(--space-3) 7.5px;
+
+    @include below(tablet) {
+        display: none;
+    }
 }
 .top {
     display: flex;
@@ -19,16 +24,6 @@
     height: var(--space-8);
     width: var(--space-8);
 }
-.avatar {
-    @include text(avatar-initials);
+.avatarSlot {
     margin-top: auto;
-    margin-inline: auto;
-    border-radius: var(--radius-full);
-    background-color: var(--color-avatar);
-    height: var(--avatar-size);
-    width: var(--avatar-size);
-    color: var(--color-text-inverse);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

@@ -1,0 +1,40 @@
+@use '../../styles/mixins' as *;
+
+.header {
+    display: none;
+
+    @include below(desktop) {
+        display: flex;
+        align-items: center;
+        height: 64px;
+        position: sticky;
+        top: 0;
+        background: var(--color-surface);
+        padding: var(--space-4);
+    }
+}
+.button {
+    padding: 6px;
+    background: var(--color-surface);
+    border: 0;
+    color: var(--color-primary);
+}
+.mobileDetails {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include below(desktop) {
+        display: none;
+    }
+
+    @include below(tablet) {
+        display: flex;
+    }
+}
+.rfLogo {
+    margin: 0 var(--space-2);
+}
+.avatarSlot {
+    margin-left: auto;
+}

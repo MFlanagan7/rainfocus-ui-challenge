@@ -14,3 +14,8 @@ export interface NavItem {
     href: string,
     children?: NavItem[],
 }
+
+export interface User {
+    name: string,
+    initials: string,
+}
