@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 :root {
     // COLORS
     --color-primary:            #5C00DC;                                                    // (Brand/Secondary Grape): button, active nav, icons, links
@@ -45,4 +47,14 @@
 
     // TYPOGRAPHY
     --font-family: 'Inter', system-ui, sans-serif;
+
+    @include below(desktop) {
+
+    }
+
+    @include below(tablet) {
+        --section-gap: 24px;
+        --event-logo-size: 64px;
+        --main-padding: 24px 16px;
+    }
 }

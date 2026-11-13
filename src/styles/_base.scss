@@ -9,18 +9,32 @@ body {
     @include text(paragraph-workflow);
     font-family: var(--font-family);
     color: var(--color-text-body);
+
+    @include below(desktop) {
+    }
 }
 h1 {
     @include text(h1-page-header);
+    font-size: clamp(1.5rem, 1rem + 2vw, 2rem);
     color: var(--color-text-heading);
+    overflow-wrap: break-word;
+
+    @include below(desktop) {
+    }
+
+    @include below(tablet) {
+    }
 }
 h2 {
     @include text(h2-section-header);
+    font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
     color: var(--color-text-heading);
+    overflow-wrap: break-word;
 }
 h3 {
     @include text(h3-sub-header);
     color: var(--color-text-heading);
+    overflow-wrap: break-word;
 }
 h4, h5 {
     color: var(--color-text-heading);

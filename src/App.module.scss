@@ -19,14 +19,26 @@
     display: flex;
     align-items: flex-start;
     gap: var(--space-4);
+
+    @include below(tablet) {
+        flex-wrap: wrap;
+    }
 }
 .eventHeadline {
     margin-bottom: var(--space-2);
+
+    @include below(desktop) {
+    }
 }
 .logo {
     height: var(--event-logo-size);
     width: var(--event-logo-size);
     border-radius: var(--radius-md);
+
+    // @include below(desktop) {
+    //     height: 64px;
+    //     width: 64px;
+    // }
 }
 .button {
     @include text(paragraph-admin);
@@ -36,6 +48,12 @@
     border: 0;
     border-radius: var(--radius-sm);
     padding: var(--space-2) var(--space-4);
+    min-height: 44px;
+
+    @include below(tablet) {
+        flex-basis: 100%;
+        margin-left: 0;
+    }
 }
 .pageHeadline {
     margin-bottom: var(--space-4);
@@ -72,9 +90,24 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: var(--space-8);
+
+    @include below(desktop) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include below(tablet) {
+        grid-template-columns: 1fr;
+        gap: var(--space-1);
+    }
 }
 .step1Card {
     padding: var(--space-2);
+
+    @include below(tablet) {
+        & + & {
+            border-top: 1px solid var(--color-border);
+        }
+    }
 }
 .cardTitle {
     @include text(card-title);
@@ -87,6 +120,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--space-4) var(--space-6);
+    grid-auto-rows: 1fr;
+
+    @include below(desktop) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @include below(tablet) {
+        grid-template-columns: 1fr;
+    }
 }
 .step2CardButton {
     @include card-box;
