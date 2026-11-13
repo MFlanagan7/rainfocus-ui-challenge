@@ -29,7 +29,7 @@
     inset: 0;
     z-index: var(--z-backdrop);
     background: var(--color-overlay);
-    
+
     @media (prefers-reduced-motion: no-preference) {
         transition: opacity 300ms ease-out;
 
@@ -128,7 +128,7 @@
     }
 }
 .step1Card {
-    padding: var(--space-2);
+    padding: var(--space-2) 0;
 
     @include below(tablet) {
         & + & {

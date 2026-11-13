@@ -18,6 +18,7 @@
             left: var(--rail-width);
             background: var(--color-surface);
             z-index: var(--z-drawer);
+            width: var(--sidebar-width);
 
             @media (prefers-reduced-motion: no-preference) {
                 transition: translate 300ms ease-out;

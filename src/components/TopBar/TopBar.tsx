@@ -21,7 +21,7 @@ const TopBar = ({ event, user, isMenuOpen, onToggleMenu, menuButtonRef }: TopBar
             </button>
             <div className={styles.mobileDetails}>
                 <img className={styles.rfLogo} src={rfLogo} alt="RainFocus logo" />
-                <p>{event.name}</p>
+                <p className={styles.label}>{event.name}</p>
                 <Avatar initials={user.initials} className={styles.avatarSlot} name={user.name} />
             </div>
         </header>
