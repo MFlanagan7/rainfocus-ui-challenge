@@ -9,6 +9,7 @@ import ArrowIcon from './components/icons/ArrowIcon';
 import ComputerIcon from './components/icons/ComputerIcon';
 import TopBar from './components/TopBar/TopBar';
 import type { User } from './types/types';
+import { useState } from 'react';
 
 const current = events[0]
 
@@ -24,12 +25,14 @@ const cardData = [
 ]
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className={styles.app}>
-      <Rail events={events} activeId={current.id} user={user} />
-      <Sidebar event={current} activeNavId='attendees' />
+      <Rail events={events} activeId={current.id} user={user} isOpen={isMenuOpen} />
+      <Sidebar event={current} activeNavId='attendees' isOpen={isMenuOpen} />
       <div className={styles.content}>
-        <TopBar event={current} user={user} />
+        <TopBar event={current} user={user} isMenuOpen={isMenuOpen} onToggleMenu={() => setIsMenuOpen(prev => !prev)} />
         <main className={styles.main}>
           <header className={styles.header}>
             <img className={styles.logo} src={current.logoUrl} alt='' />

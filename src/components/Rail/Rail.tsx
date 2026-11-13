@@ -8,11 +8,12 @@ type RailProps = {
     events: EventInfo[],
     activeId: string
     user: User,
+    isOpen: boolean,
 }
 
-const Rail = ({ events, activeId, user }: RailProps) => {
+const Rail = ({ events, activeId, user, isOpen }: RailProps) => {
     return (
-        <div className={styles.rail}>
+        <div className={`${styles.rail} ${isOpen ? styles.open : ''}`}>
             <div className={styles.top}>
                 <img className={styles.rfLogo} src={rfLogo} alt="RainFocus logo" />
                 {

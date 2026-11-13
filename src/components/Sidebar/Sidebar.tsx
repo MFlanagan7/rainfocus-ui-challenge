@@ -5,11 +5,12 @@ import { navData } from '../../data/nav-data'
 type SidebarProps = {
     event: EventInfo,
     activeNavId: string,
+    isOpen: boolean,
 }
 
-const Sidebar = ({ event, activeNavId }: SidebarProps) => {
+const Sidebar = ({ event, activeNavId, isOpen }: SidebarProps) => {
     return (
-        <div className={styles.sidebar}>
+        <div id='sidebar' className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
             <p className={styles.navLabel}>{event.name}</p>
             <div className={styles.subheader}>
                 {event.city},&nbsp;

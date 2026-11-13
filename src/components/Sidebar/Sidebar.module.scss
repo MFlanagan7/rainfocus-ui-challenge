@@ -11,6 +11,14 @@
 
     @include below(desktop) {
         display: none;
+
+        &.open {
+            display: block;
+            position: fixed;
+            left: var(--rail-width);
+            background: var(--color-surface);
+            z-index: 10;
+        }
     }
 }
 
