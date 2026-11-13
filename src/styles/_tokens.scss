@@ -52,10 +52,6 @@
     // TYPOGRAPHY
     --font-family: 'Inter', system-ui, sans-serif;
 
-    @include below(desktop) {
-
-    }
-
     @include below(tablet) {
         --section-gap: 24px;
         --event-logo-size: 64px;

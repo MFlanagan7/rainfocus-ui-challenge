@@ -53,19 +53,11 @@
 }
 .eventHeadline {
     margin-bottom: var(--space-2);
-
-    @include below(desktop) {
-    }
 }
 .logo {
     height: var(--event-logo-size);
     width: var(--event-logo-size);
     border-radius: var(--radius-md);
-
-    // @include below(desktop) {
-    //     height: 64px;
-    //     width: 64px;
-    // }
 }
 .button {
     @include text(paragraph-admin);
