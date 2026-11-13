@@ -132,7 +132,7 @@ function App() {
             <section className={styles.step}>
               <h4 className={styles.stepHeader}>Step 3: <span className={styles.headerText}>Design post-registration experiences.</span></h4>
               <div className={styles.cardGrid}>
-                <Card icon={<ComputerIcon />} title='Attendee Portal' body="Manage the portal that attendees will see after they’ve register for your event." />
+                <Card icon={<ComputerIcon />} title='Attendee Portal' body="Manage the portal that attendees will see after they’ve registered for your event." />
               </div>
             </section>
           </section>
